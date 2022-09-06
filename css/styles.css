@@ -26,6 +26,10 @@ body {
     font-size: 1.6rem;
     /* Interlineado */
     line-height: 2;
+
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto ;
 }
 
 /* Globales */
@@ -140,9 +144,18 @@ img {
 @media (min-width: 768px) {
     .navegacion {
         display: flex;
-        gap: 2rem;
+        /* gap: 2rem */
+    }
+
+    .navegacion a{
+        margin-right: 2rem;
+    }
+
+    .navegacion a:last-of-type{
+        margin-right: 0;
     }
 }
+
 
 .navegacion__enlace {
     display: block;
@@ -199,7 +212,7 @@ img {
 }
 
 
-/* Cursos */
+/* Cursos Index*/
 .cursos {
     list-style: none;
 }
@@ -214,18 +227,83 @@ img {
     margin-bottom: 0;
 }
 
-.widget-curso__label {
+.widget-curso__label,
+.curso__label {
     font-family: var(--fuenteHeading);
     font-weight: 700;
 }
 
-.widget-curso__info {
+.widget-curso__info,
+.curso__info {
     font-weight: 400
 }
 
 .widget-curso__label,
-.widget-curso__info {
+.widget-curso__info,
+.curso__label,
+.curso__info {
     font-size: 2rem;
+}
+
+/* Nosotros */
+@media (min-width: 768px) {
+    /* Grid way better */
+    .sobre-nosotros{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+
+    /* Con flexbox */
+    /* .sobre-nosotros{
+        display: flex;
+        justify-content: space-between (en caso de que el gap no jale)
+        gap: 2rem;
+    }
+
+    .sobre-nosostros__imagen,
+    .sobre-nosostros__texto{
+        flex-basis: 50%;
+        flex-basis: calc(50% - 1rem); (en caso de que el gap no jale)
+    } */
+}
+
+/* Curso (individual) */
+.curso{
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--gris);
+}
+
+.curso:last-of-type{
+    border-bottom: none;
+}
+
+/* Duplicidad de código, bien se coloca en la linea 230 */
+
+/* .curso__label{
+    font-weight: 700;
+}
+
+.curso__info{
+    font-weight: 400;
+}
+
+.curso__label,
+.curso__info{
+    font-size: 2rem;
+} */
+
+.curso__descripcion{
+    text-align: justify;
+}
+
+@media (min-width: 768px) {
+    .curso{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2rem;
+    }   
+    
 }
 
 /* Footer */
